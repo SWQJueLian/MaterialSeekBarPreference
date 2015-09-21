@@ -107,10 +107,11 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
 
         mMeasurementUnitView = (TextView) view.findViewById(R.id.measurement_unit);
         mMeasurementUnitView.setText(mMeasurementUnit);
+		mMeasurementUnitView.setTextAppearance(getContext(), android.R.attr.textAppearance);
 
         mSeekBar.setProgress(mCurrentValue - mMinValue);
 
-        setSeekBarTintOnPreLollipop();
+        //setSeekBarTintOnPreLollipop();
 
         if (!view.isEnabled()) {
             mSeekBar.setEnabled(false);
@@ -122,6 +123,7 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
         return (int) (dp * context.getResources().getDisplayMetrics().density);
     }
 
+	/*
     void setSeekBarTintOnPreLollipop() { //TMP: I hope google will introduce native seekbar tinting for appcompat users
         if (SDK_INT < 21) {
             Resources.Theme theme = getContext().getTheme();
@@ -141,6 +143,7 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
             mSeekBar.setProgressDrawable(progress);
         }
     }
+	*/
 
     @Override
     protected Object onGetDefaultValue(@NonNull TypedArray ta, int index) {
